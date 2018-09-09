@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <script data-require="angular.js@1.7.0" data-semver="1.7.0" src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="Ctrl">
+    <h2>AngularJS CRUD</h2>
+    <input type="text" ng-model="newName">
+    <input ng-if="isupdate==false" type="button" ng-click="addNew()" value="Add New">
+    <input ng-if="isupdate==true" type="button" ng-click="update()" value="Update">
+    <input type="button" ng-click="removeLast()" value="Remove Last">
+    <ul>
+      <li ng-repeat="name in names track by $index">
+            {{name}}&nbsp;<a href='' ng-click="edit($index)">Edit</a>&nbsp;<a href='' ng-click="removethis($index)">Remove</a>
+      </li>
+    </ul>
+    <h2 ng-show="!names.length">Nothing to show</h2>
+  </body>
+</html>
+
